@@ -7,7 +7,7 @@ export default function ListEmployes() {
     const [APIData, setAPIData] = useState([]);
     const [searchTxt, setSearchTxt] = useState("");
     useEffect(() => {
-        axios.get(`http://localhost:8000/employes`).then((response) => {
+        axios.get(`https://estiprojback.onrender.com/Employes`).then((response) => {
                 console.log(response.data)
                 setAPIData(response.data);
             })
@@ -22,30 +22,30 @@ export default function ListEmployes() {
     }
 
     const getData = (e) => {
-        axios.get(`http://localhost:8000/employes?q=${e}`).then((getData) => {
+        axios.get(`https://estiprojback.onrender.com/Employes?q=${e}`).then((getData) => {
                 setAPIData(getData.data);
             });
     };
 
     const onDelete = (Id_employe) => {
-        axios.delete(`http://localhost:8000/employes/${Id_employe}`).then(() => {
+        axios.delete(`https://estiprojback.onrender.com/Employes/${Id_employe}`).then(() => {
             getData();
         })
     }
 
     const like = (data) => {
         data.like += 1;
-        axios.put(`http://localhost:8000/employes/${data.Id_employe}`, data)
+        axios.put(`https://estiprojback.onrender.com/Employes/${data.Id_employe}`, data)
     }
     
     const dislike = (data) => {
             data.dislike += 1;
-            axios.put(`http://localhost:8000/employes/${data.Id_employe}`, data)
+            axios.put(`https://estiprojback.onrender.com/Employes/${data.Id_employe}`, data)
     }
         
     const jadore = (data) => {
             data.jadore += 1;
-            axios.put(`http://localhost:8000/employes/${data.Id_employe}`, data)
+            axios.put(`https://estiprojback.onrender.com/Employes/${data.Id_employe}`, data)
     }
     
 
