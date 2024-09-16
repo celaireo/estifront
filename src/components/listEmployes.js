@@ -7,7 +7,7 @@ export default function ListEmployes() {
     const [APIData, setAPIData] = useState([]);
     const [searchTxt, setSearchTxt] = useState("");
     useEffect(() => {
-        axios.get(`https://estifront.vercel.app/listEmployes`).then((response) => {
+        axios.get(`https://estiprojback.onrender.com/Employes`).then((response) => {
                 console.log(response.data)
                 setAPIData(response.data);
             })
@@ -22,13 +22,13 @@ export default function ListEmployes() {
     }
 
     const getData = (e) => {
-        axios.get(`https://estifront.vercel.app/listEmployes?q=${e}`).then((getData) => {
+        axios.get(`https://estiprojback.onrender.com/Employes?q=${e}`).then((getData) => {
                 setAPIData(getData.data);
             });
     };
 
     const onDelete = (Id_employe) => {
-        axios.delete(`https://estifront.vercel.app/listEmployes/${Id_employe}`).then(() => {
+        axios.delete(`https://estiprojback.onrender.com/Employes/${Id_employe}`).then(() => {
             getData();
         })
     }
